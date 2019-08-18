@@ -3,7 +3,7 @@ import numpy as np
 
 # multiple cascades from: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 # https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 
 cap = cv2.VideoCapture(0)
 
