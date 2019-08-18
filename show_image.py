@@ -7,6 +7,9 @@ img = cv2.imread('pikachu.jpg')
 # Read in grayscale image to cv2 image
 img_grayscale = cv2.imread('pikachu.jpg', cv2.IMREAD_GRAYSCALE)
 
+# Overlay rectangle
+cv2.rectangle(img,(200,200),(600,600),(0,0,255),10)
+
 # Show cv2 image
 cv2.imshow('Pikachu!', img)
 cv2.imshow('Pikachu grayscale!', img_grayscale)

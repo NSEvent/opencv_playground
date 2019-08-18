@@ -25,8 +25,12 @@ while True:
 	# Update video out stream with colored frame 
 	vout.write(frame)
 	
+	# Adaptive threshold filter
+	th = cv2.adaptiveThreshold(frame_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 115, 1)
+
 	cv2.imshow('original_capture', frame)
 	cv2.imshow('grayscale_capture', frame_gray)
+	cv2.imshow('adaptive_threshold', th)
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
