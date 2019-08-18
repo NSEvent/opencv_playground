@@ -8,12 +8,14 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cap = cv2.VideoCapture(0)
 
 while True:
-	ret, img = cap.read()
+	ret = False
+	while not ret:
+		ret, img = cap.read()
 
 	# Convert to grayscale to simply image for search
 	img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	# Face detection using our haar cascade classifier
-	faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
+	faces = face_cascade.detectMultiScale(img_gray)#, 1.3, 5)
 
 	roi_gray = None
 	for (x, y, w, h) in faces:
