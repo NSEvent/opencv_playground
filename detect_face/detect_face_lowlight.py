@@ -19,7 +19,7 @@ while True:
 	# Parameters for manipulating image data
 	maxIntensity = 255.0
 	phi = 1
-	theta = 8 # TRY UPPING THETA IF TOO DARK
+	theta = 12 # TRY UPPING THETA IF TOO DARK
 
 	# Attempt to make detection work in low light conditions	
 
@@ -30,7 +30,7 @@ while True:
 	img_gray = np.array(img_gray,dtype='uint8')
 
 	# Face detection using our haar cascade classifier
-	faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
+	faces = face_cascade.detectMultiScale(img_gray, scaleFactor=1.3, minNeighbors=5, minSize=(30,30))
 	# faces = face_cascade.detectMultiScale(img_gray)
 
 	roi_gray = None

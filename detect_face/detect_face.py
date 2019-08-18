@@ -17,7 +17,7 @@ while True:
 
 
 	# Face detection using our haar cascade classifier
-	faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
+	faces = face_cascade.detectMultiScale(img_gray, scaleFactor=1.3, minNeighbors=5, minSize=(30,30))
 	# faces = face_cascade.detectMultiScale(img_gray)
 
 	roi_gray = None
