@@ -14,22 +14,31 @@ while True:
 
 	# Convert to grayscale to simply image for search
 	img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
 	# Face detection using our haar cascade classifier
 	faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
 	# faces = face_cascade.detectMultiScale(img_gray)
 
 	roi_gray = None
+	num = 0
 	for (x, y, w, h) in faces:
 		# Draw red rectangle over any roi identified as a face
 		cv2.rectangle(img, (x,y), (x+w,y+h), (0,0,255), 4)
 		roi_gray = img_gray[y:y+h, x:x+w]
-		roi_color = img[y:y+h, x:x+w]
+		# roi_color = img[y:y+h, x:x+w]
+	
+		if not roi_gray is None:
+			cv2.imshow('ROI detected as face(' + str(num) + ')', roi_gray)	
+
+		num += 1
 
 	cv2.imshow('Webcam stream tracking face', img)
-	if not roi_gray is None:
-		cv2.imshow('ROI matched to face', roi_gray)
+	cv2.imshow('Edited grayscale', img_gray)
+	#if not roi_gray is None:
+	#	cv2.imshow('ROI matched to face', roi_gray)
 
-	if cv2.waitKey(1) & 0xFF == ord('q'):
+	if cv2.waitKey(10) & 0xFF == ord('q'):
 		break
 
 cap.release()
