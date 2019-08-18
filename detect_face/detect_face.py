@@ -15,7 +15,8 @@ while True:
 	# Convert to grayscale to simply image for search
 	img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	# Face detection using our haar cascade classifier
-	faces = face_cascade.detectMultiScale(img_gray)#, 1.3, 5)
+	faces = face_cascade.detectMultiScale(img_gray, 1.3, 5)
+	# faces = face_cascade.detectMultiScale(img_gray)
 
 	roi_gray = None
 	for (x, y, w, h) in faces:
