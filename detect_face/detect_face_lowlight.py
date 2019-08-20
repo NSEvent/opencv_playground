@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
 
-# multiple cascades from: https://github.com/Itseez/opencv/tree/master/data/haarcascades
-# https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
+# harr cascades from https://github.com/opencv/opencv/tree/master/data/haarcascades
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 
 cap = cv2.VideoCapture(0)
@@ -12,7 +11,7 @@ while True:
 	while not ret:
 		ret, img = cap.read()
 
-	# Convert to grayscale to simply image for search
+	# Convert to grayscale to simplify image for search
 	img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
